@@ -26,8 +26,7 @@
     (* (/ 1 m) (reduce + (map * (map - hypo-y actual-y) hypo-y)))))
 
 (defn batch-gradient-descent [thetas alpha hypo-y actual-y]
-  (let [theta0 (first thetas)
-        theta1 (last thetas)]
+  (let [[theta0 theta1] thetas]
     [(- theta0 (* alpha (dtheta0 hypo-y actual-y)))
      (- theta1 (* alpha (dtheta1 hypo-y actual-y)))]))
 
@@ -37,7 +36,7 @@
                        training-inputs)
           newthetas (batch-gradient-descent thetas alpha hypo-ys 
                                             training-outputs)]
-      (println (costfn hypo-ys training-outputs))
+;      (println (costfn hypo-ys training-outputs))
       (if (or (Double/isNaN (first thetas))
               (and (= (first thetas) (first newthetas))
                    (= (last thetas) (last newthetas)))) thetas
@@ -54,20 +53,3 @@
 ;so perhaps a scaling alpha isn't a bad idea? Either way there needs to
 ;be some checking for conditions where it'll never converge and we're wasting
 ;cpu time.
-
-;write some proper tests for this library.
-;it works in the two cases tested
-
-(defn height-test [alpha thetas] 
-  (let [training-inputs (pmap #(Double/valueOf %) (clojure.string/split (slurp "
-ex2x.dat") #"\n"))
-      training-outputs (pmap #(Double/valueOf %) (clojure.string/split (slurp "ex2y.dat") #"\n"))]
-  (println (univar-linear-regression alpha thetas 
-                                     training-inputs training-outputs))))
-
-
-(defn test [alpha thetas]
-  (let [data (drop 2 (clojure.string/split (slurp "crickets.csv") #"[\n,]"))
-        train-in (map #(Double/valueOf %) (take-nth 2 data))
-        train-out (map #(Double/valueOf %) (take-nth 2 (rest data)))]
-    (println (univar-linear-regression alpha thetas train-in train-out))))
