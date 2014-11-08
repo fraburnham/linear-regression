@@ -67,7 +67,7 @@
 ;this pulls the housing data out from andrew ng's course
 
 (defn test [alpha thetas] 
-  (let [training-inputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/Downloads/ex2x.dat") #"\n"))
-      training-outputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/Downloads/ex2y.dat") #"\n"))]
+  (let [training-inputs (map #(Double/valueOf %) (clojure.string/split (slurp "ex2x.dat") #"\n"))
+      training-outputs (map #(Double/valueOf %) (clojure.string/split (slurp "ex2y.dat") #"\n"))]
   (println (univar-linear-regression alpha thetas 
                                      training-inputs training-outputs))))
