@@ -1,14 +1,13 @@
 # linear-regression
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to perform simple linear regression.
 
 ## Usage
 
-FIXME
+Call (univar-linear-regression learning-rate default-thetas training-inputs training-outputs). You may have to adjust your learning-rate until the function can converge on a solution.
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Frank Burnham
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License version 1.0.
