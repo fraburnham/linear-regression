@@ -55,6 +55,7 @@
                        training-inputs)
           newthetas (batch-gradient-descent thetas alpha hypo-ys 
                                             training-outputs)]
+      (println thetas (costfn hypo-ys training-outputs))
       (if (or (Double/isNaN (first thetas))
               (and (= (first thetas) (first newthetas))
                    (= (last thetas) (last newthetas)))) thetas
@@ -64,10 +65,19 @@
 ;http://openclassroom.stanford.edu/MainFolder/DocumentPage.php?course=MachineLearning&doc=exercises/ex3/ex3.html
 ;read up and improve
 
-;this pulls the housing data out from andrew ng's course
+;write some proper tests for this library.
+;it works in the two cases tested
 
-(defn test [alpha thetas] 
-  (let [training-inputs (map #(Double/valueOf %) (clojure.string/split (slurp "ex2x.dat") #"\n"))
-      training-outputs (map #(Double/valueOf %) (clojure.string/split (slurp "ex2y.dat") #"\n"))]
+(defn height-test [alpha thetas] 
+  (let [training-inputs (pmap #(Double/valueOf %) (clojure.string/split (slurp "
+ex2x.dat") #"\n"))
+      training-outputs (pmap #(Double/valueOf %) (clojure.string/split (slurp "ex2y.dat") #"\n"))]
   (println (univar-linear-regression alpha thetas 
                                      training-inputs training-outputs))))
+
+
+(defn iris-test [alpha thetas]
+  (let [data (drop 2 (clojure.string/split (slurp "iris-linear-regression-data.csv") #"[\n,]"))
+        train-in (map #(Double/valueOf %) (take-nth 2 data))
+        train-out (map #(Double/valueOf %) (take-nth 2 (rest data)))]
+    (println (univar-linear-regression alpha thetas train-in train-out))))
