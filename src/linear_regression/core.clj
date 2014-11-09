@@ -6,8 +6,6 @@
 (defn squared-diff [x y]
   (square (- x y)))
 
-;the hypothesis for our univariate linear regression
-;h(x) = theta0 + theta1(x)
 (defn hypothesis [theta0 theta1 x]
   (+ (* theta1 x) theta0))
 

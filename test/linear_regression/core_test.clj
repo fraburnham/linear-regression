@@ -5,6 +5,12 @@
 (defmacro hundredths [x]
   `(float (/ (Math/round (* ~x 100)) 100)))
 
+;TODO: write tests for each individual function to verify them
+;make it a habit to write the test as you write the function
+;bust out a few test cases to prove that the function works
+;as they never have side effects it should guarantee the function
+;will always work given valid inputs
+
 (deftest height-test
   (testing "Testing age vs height regression"
     (let [training-inputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2x.dat") #"\n"))
