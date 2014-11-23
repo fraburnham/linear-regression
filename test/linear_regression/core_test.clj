@@ -26,8 +26,8 @@
 ;run the height regression using the multivar stuff
 (deftest height-test
   (testing "Testing age vs height regression"
-    (let [training-inputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2x.dat") #"\n"))
-          training-outputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2y.dat") #"\n"))
+    (let [training-inputs (partition 1 (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2x.dat") #"\n")))
+          training-outputs (partition 1 (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2y.dat") #"\n")))
           thetas (linear-regression 0.07
                                     training-inputs
                                     training-outputs)

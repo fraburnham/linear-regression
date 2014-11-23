@@ -53,26 +53,32 @@
 ;actual-y (4 6)
 (defn batch-gradient-descent [thetas alpha features hypo-ys actual-ys]
   (let [malpha (* alpha (/ 1 (count hypo-ys)))]
+    ;all of this code thinks about thetas wrong
+    ;the thetas don't change. One per feature not one per test case
+    ;not one group of thetas per group of features
+    ;actually this shouldn't be too wrong
+    ;maybe it thinks of features wrong I'm tired
     (map (fn [thetas feats]
            (map (fn [tj fj hypo-y actual-y]
-                  (let [sumsqdiff
-                        (reduce + (map squared-diff hypo-y actual-y))]
+                  (let [sumsqdiff (reduce + (map squared-diff hypo-y actual-y))]
                     (- tj (* malpha (* fj sumsqdiff)))))
                 thetas feats hypo-ys actual-ys))
          thetas features)))
 
+;training-inputs
+;((1 feature feature feature) (1 feature feature feature))
+;thetas
+;(theta0 theta1 theta2)
 (defn linear-regression [alpha training-inputs training-outputs]
   ;i see what I did here, I need to format the data differently since it's still
   ;single var
   (loop [thetas
-         (cons 1 (repeatedly (count training-inputs) (constantly 0)))]
-    (let [hypo-ys (map hypothesis thetas training-inputs)
+         (cons 1 (repeatedly (count (first training-inputs)) (constantly 0)))]
+    (let [hypo-ys (map (partial hypothesis thetas) (map #(conj % 1) training-inputs))
           new-thetas (batch-gradient-descent thetas alpha
                                             training-inputs hypo-ys training-outputs)]
-      (println thetas)
       ;kay, we got the new-thetas and all that biz, check them for isNaN?
       (if (or (Double/isNaN (last thetas))
               (= thetas new-thetas))
         thetas
         (recur new-thetas)))))
-
