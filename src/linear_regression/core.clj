@@ -6,48 +6,73 @@
 (defn squared-diff [x y]
   (square (- x y)))
 
-(defn hypothesis [theta0 theta1 x]
+(defn univar-hypothesis [theta0 theta1 x]
   (+ (* theta1 x) theta0))
 
-(defn costfn [hypo-y actual-y]
+(defn univar-costfn [hypo-y actual-y]
   (let [m (/ 1 (* 2 (count hypo-y)))]
     (* m (reduce + (map squared-diff hypo-y actual-y)))))
 
 ;partial derivative of costfn with respect to theta0
-(defn dtheta0 [hypo-y actual-y]
+(defn univar-dtheta0 [hypo-y actual-y]
   (let [m (count hypo-y)]
     (* (/ 1 m) (reduce + (map - hypo-y actual-y)))))
 
 ;partial derivative of costfn with respect to theta1
-(defn dtheta1 [hypo-y actual-y]
+(defn univar-dtheta1 [hypo-y actual-y]
   (let [m (count hypo-y)]
     (* (/ 1 m) (reduce + (map * (map - hypo-y actual-y) hypo-y)))))
 
-(defn batch-gradient-descent [thetas alpha hypo-y actual-y]
+(defn univar-batch-gradient-descent [thetas alpha hypo-y actual-y]
   (let [[theta0 theta1] thetas]
-    [(- theta0 (* alpha (dtheta0 hypo-y actual-y)))
-     (- theta1 (* alpha (dtheta1 hypo-y actual-y)))]))
+    [(- theta0 (* alpha (univar-dtheta0 hypo-y actual-y)))
+     (- theta1 (* alpha (univar-dtheta1 hypo-y actual-y)))]))
 
 (defn univar-linear-regression [alpha thetas training-inputs training-outputs]
   (loop [thetas thetas]
-    (let [hypo-ys (map (partial hypothesis (first thetas) (last thetas))
+    (let [hypo-ys (map (partial univar-hypothesis (first thetas) (last thetas))
                        training-inputs)
-          newthetas (batch-gradient-descent thetas alpha hypo-ys 
+          newthetas (univar-batch-gradient-descent thetas alpha hypo-ys
                                             training-outputs)]
-;      (println (costfn hypo-ys training-outputs))
       (if (or (Double/isNaN (first thetas))
-              (and (= (first thetas) (first newthetas))
-                   (= (last thetas) (last newthetas)))) thetas
-               (recur newthetas)))))
+              (= thetas newthetas))
+        thetas
+        (recur newthetas)))))
 
-;there is some data on how to pick a good alpha
-;http://openclassroom.stanford.edu/MainFolder/DocumentPage.php?course=MachineLearning&doc=exercises/ex3/ex3.html
-;read up and improve
+;hypothesis requires the first feature to be 1 always
+(defn hypothesis [thetas features]
+  (reduce + (map * thetas features)))
 
-;without reading up on anything it seems to me that I can start with like 10
-;it'll diverge to NaN farily quickly, or converge on a solution
-;divide by half or something and re-run until you get convergence
-;it may get stuck in back and forth loops. Dancing around the answer
-;so perhaps a scaling alpha isn't a bad idea? Either way there needs to
-;be some checking for conditions where it'll never converge and we're wasting
-;cpu time.
+(defn costfn [hypo-y actual-y]
+  (let [m (count hypo-y)]
+    (/ 1 (* 2 m) (reduce + (map squared-diff hypo-y actual-y)))))
+
+;thetas ((t1 t2 t3) (t1 t2 t3))
+;features ((f1 f2 f3) (f1 f2 f3))
+;hypo-y (1 2)
+;actual-y (4 6)
+(defn batch-gradient-descent [thetas alpha features hypo-ys actual-ys]
+  (let [malpha (* alpha (/ 1 (count hypo-ys)))]
+    (map (fn [thetas feats]
+           (map (fn [tj fj hypo-y actual-y]
+                  (let [sumsqdiff
+                        (reduce + (map squared-diff hypo-y actual-y))]
+                    (- tj (* malpha (* fj sumsqdiff)))))
+                thetas feats hypo-ys actual-ys))
+         thetas features)))
+
+(defn linear-regression [alpha training-inputs training-outputs]
+  ;i see what I did here, I need to format the data differently since it's still
+  ;single var
+  (loop [thetas
+         (cons 1 (repeatedly (count training-inputs) (constantly 0)))]
+    (let [hypo-ys (map hypothesis thetas training-inputs)
+          new-thetas (batch-gradient-descent thetas alpha
+                                            training-inputs hypo-ys training-outputs)]
+      (println thetas)
+      ;kay, we got the new-thetas and all that biz, check them for isNaN?
+      (if (or (Double/isNaN (last thetas))
+              (= thetas new-thetas))
+        thetas
+        (recur new-thetas)))))
+

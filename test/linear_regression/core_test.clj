@@ -11,15 +11,28 @@
 ;as they never have side effects it should guarantee the function
 ;will always work given valid inputs
 
-(deftest height-test
+#_(deftest univar-height-test
   (testing "Testing age vs height regression"
     (let [training-inputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2x.dat") #"\n"))
           training-outputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2y.dat") #"\n"))
           [theta0 theta1] (univar-linear-regression 0.07 [0 0]
                                                     training-inputs
                                                     training-outputs)
-          y1 (hundredths (hypothesis theta0 theta1 3.5))
-          y2 (hundredths (hypothesis theta0 theta1 7))]
+          y1 (hundredths (univar-hypothesis theta0 theta1 3.5))
+          y2 (hundredths (univar-hypothesis theta0 theta1 7))]
+      (is (= y1 (float 0.97)))
+      (is (= y2 (float 1.2))))))
+
+;run the height regression using the multivar stuff
+(deftest height-test
+  (testing "Testing age vs height regression"
+    (let [training-inputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2x.dat") #"\n"))
+          training-outputs (map #(Double/valueOf %) (clojure.string/split (slurp "/home/seditiosus/clojure/linear-regression/ex2y.dat") #"\n"))
+          thetas (linear-regression 0.07
+                                    training-inputs
+                                    training-outputs)
+          y1 (hundredths (hypothesis thetas 3.5))
+          y2 (hundredths (hypothesis thetas 7))]
       (is (= y1 (float 0.97)))
       (is (= y2 (float 1.2))))))
 
