@@ -41,7 +41,7 @@
 
 ;hypothesis requires the first feature to be 1 always
 (defn hypothesis [thetas features]
-  (reduce + (pmap * thetas features)))
+  (reduce + (map * thetas features)))
 
 (defn costfn [hypo-y actual-y]
   (let [m (count hypo-y)]
@@ -53,9 +53,9 @@
 ;actual-y (4 6)
 (defn batch-gradient-descent [thetas alpha features hypo-ys actual-ys]
   (let [malpha (* alpha (/ 1 (count hypo-ys)))
-        diffs (pmap #(- %1 %2) hypo-ys actual-ys)
-        sums (reduce #(pmap + %1 %2) (map #(map (partial * %1) %2) diffs features))]
-    (pmap (fn [tj sum] (- tj (* malpha sum))) thetas sums)))
+        diffs (map #(- %1 %2) hypo-ys actual-ys)
+        sums (reduce #(map + %1 %2) (map #(map (partial * %1) %2) diffs features))]
+    (map (fn [tj sum] (- tj (* malpha sum))) thetas sums)))
 
 ;training-inputs
 ;((1 feature feature feature) (1 feature feature feature))
@@ -64,7 +64,7 @@
 (defn linear-regression [alpha training-inputs training-outputs]
   (loop [thetas
          (cons 1 (repeatedly (dec (count (first training-inputs))) (constantly 0)))]
-    (let [hypo-ys (pmap (partial hypothesis thetas) training-inputs)
+    (let [hypo-ys (map (partial hypothesis thetas) training-inputs)
           new-thetas (batch-gradient-descent thetas alpha
                                             training-inputs hypo-ys training-outputs)]
       (if (or (Double/isNaN (last thetas))
