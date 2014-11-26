@@ -6,6 +6,7 @@
 (defn squared-diff [x y]
   (square (- x y)))
 
+;;----------------UNIVAR SPECIFIC FUNCTIONS----------------
 (defn univar-hypothesis [theta0 theta1 x]
   (+ (* theta1 x) theta0))
 
@@ -39,13 +40,14 @@
         thetas
         (recur newthetas)))))
 
+;;----------------MULTI/UNIVAR FUNCTIONS----------------
 ;hypothesis requires the first feature to be 1 always
 (defn hypothesis [thetas features]
   (reduce + (map * thetas features)))
 
-(defn costfn [hypo-y actual-y]
-  (let [m (count hypo-y)]
-    (/ 1 (* 2 m) (reduce + (map squared-diff hypo-y actual-y)))))
+(defn costfn [hypo-ys actual-ys]
+  (let [m (count hypo-ys)]
+    (/ 1 (* 2 m) (reduce + (map squared-diff hypo-ys actual-ys)))))
 
 ;thetas ((t1 t2 t3) (t1 t2 t3))
 ;features ((f1 f2 f3) (f1 f2 f3))
@@ -63,11 +65,13 @@
 ;(theta0 theta1 theta2)
 (defn linear-regression [alpha training-inputs training-outputs]
   (loop [thetas
-         (cons 1 (repeatedly (dec (count (first training-inputs))) (constantly 0)))]
+         (cons 1 (repeatedly (dec (count (first training-inputs))) (constantly 0)))
+         cost 0]
     (let [hypo-ys (map (partial hypothesis thetas) training-inputs)
           new-thetas (batch-gradient-descent thetas alpha
-                                            training-inputs hypo-ys training-outputs)]
-      (if (or (Double/isNaN (last thetas))
+                                            training-inputs hypo-ys training-outputs)
+          new-cost (costfn hypo-ys training-outputs)]
+      (if (or (> cost new-cost) ;this seems backward... old cost should be bigger than new cost...
               (= thetas new-thetas))
         thetas
-        (recur new-thetas)))))
+        (recur new-thetas new-cost)))))
