@@ -40,11 +40,14 @@
         thetas
         (recur newthetas)))))
 
+;Added in some changes for testing
+;transients and loop / recur instead of map reduce
 ;;----------------MULTI/UNIVAR FUNCTIONS----------------
 ;hypothesis requires the first feature to be 1 always
 (defn hypothesis [thetas features]
   (reduce + (map * thetas features)))
 
+;gonna try to get some speed out of costfn...
 (defn costfn [hypo-ys actual-ys]
   (let [m (count hypo-ys)]
     (/ 1 (* 2 m) (reduce + (map squared-diff hypo-ys actual-ys)))))
@@ -71,7 +74,7 @@
           new-thetas (batch-gradient-descent thetas alpha
                                             training-inputs hypo-ys training-outputs)
           new-cost (costfn hypo-ys training-outputs)]
-      (if (or (> cost new-cost) ;this seems backward... old cost should be bigger than new cost...
+      (if (or (> cost new-cost)
               (= thetas new-thetas))
         thetas
         (recur new-thetas new-cost)))))
