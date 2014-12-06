@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aed5b7b0-1f0d-4d96-b583-d304eeccb048" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/findbugs-idea.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/linear_regression/core.clj" afterPath="$PROJECT_DIR$/src/linear_regression/core.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linear_regression.iml" afterPath="$PROJECT_DIR$/linear_regression.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/replstate.xml" afterPath="$PROJECT_DIR$/.idea/replstate.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,22 +32,9 @@
       <file leaf-file-name="core.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/linear_regression/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7659575" vertical-offset="0" max-vertical-offset="940">
-              <caret line="79" column="39" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
-              <folding>
-                <element signature="e#29#56#0" expanded="false" />
-                <element signature="e#58#102#0" expanded="false" />
-                <element signature="e#164#232#0" expanded="false" />
-                <element signature="e#234#367#0" expanded="false" />
-                <element signature="e#422#539#0" expanded="false" />
-                <element signature="e#594#726#0" expanded="false" />
-                <element signature="e#728#947#0" expanded="false" />
-                <element signature="e#949#1431#0" expanded="false" />
-                <element signature="e#1630#1702#0" expanded="false" />
-                <element signature="e#1750#1877#0" expanded="false" />
-                <element signature="e#1975#2285#0" expanded="false" />
-                <element signature="e#2395#2966#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.15319149" vertical-offset="0" max-vertical-offset="1062">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,7 +68,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="1" />
+    <option name="x" value="1" />
+    <option name="y" value="3" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -109,6 +99,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -145,9 +136,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linear-regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linear-regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linear_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -222,6 +230,14 @@
       <setting name="repl" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
     <configuration default="true" type="ClojureREPL" factoryName="Local">
       <setting name="useLein" value="true" />
       <setting name="leinProjectName" value="" />
@@ -229,14 +245,6 @@
       <setting name="jvmArgs" value="" />
       <setting name="parameters" value="" />
       <setting name="workingDir" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
       <method />
     </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
@@ -252,19 +260,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -293,6 +288,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -398,19 +406,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="1" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="1" y="3" width="1920" height="1080" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.49943504" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988626" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -418,8 +428,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34132054" sideWeight="0.500565" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12087327" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34132054" sideWeight="0.500565" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -461,22 +471,25 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/linear_regression/core.clj">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1548">
+          <caret line="79" column="39" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/linear_regression/core_test.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="954">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linear_regression/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1728">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="66" selection-end-column="30" />
-          <folding>
-            <element signature="e#29#56#0" expanded="false" />
-            <element signature="e#58#102#0" expanded="false" />
-            <element signature="e#164#232#0" expanded="false" />
-            <element signature="e#234#367#0" expanded="false" />
-            <element signature="e#422#539#0" expanded="false" />
-            <element signature="e#594#726#0" expanded="false" />
-            <element signature="e#728#947#0" expanded="false" />
-            <element signature="e#949#1431#0" expanded="false" />
-            <element signature="e#1630#1702#0" expanded="false" />
-            <element signature="e#1750#1877#0" expanded="false" />
-            <element signature="e#1975#2285#0" expanded="false" />
-            <element signature="e#2395#2966#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -492,20 +505,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
           <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
-          <folding>
-            <element signature="e#29#56#0" expanded="false" />
-            <element signature="e#58#102#0" expanded="false" />
-            <element signature="e#164#232#0" expanded="false" />
-            <element signature="e#234#367#0" expanded="false" />
-            <element signature="e#422#539#0" expanded="false" />
-            <element signature="e#594#726#0" expanded="false" />
-            <element signature="e#728#947#0" expanded="false" />
-            <element signature="e#949#1431#0" expanded="false" />
-            <element signature="e#1630#1702#0" expanded="false" />
-            <element signature="e#1750#1877#0" expanded="false" />
-            <element signature="e#1975#2285#0" expanded="false" />
-            <element signature="e#2395#2966#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -521,20 +521,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1656">
           <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
-          <folding>
-            <element signature="e#29#56#0" expanded="false" />
-            <element signature="e#58#102#0" expanded="false" />
-            <element signature="e#164#232#0" expanded="false" />
-            <element signature="e#234#367#0" expanded="false" />
-            <element signature="e#422#539#0" expanded="false" />
-            <element signature="e#594#726#0" expanded="false" />
-            <element signature="e#728#947#0" expanded="false" />
-            <element signature="e#949#1431#0" expanded="false" />
-            <element signature="e#1630#1702#0" expanded="false" />
-            <element signature="e#1750#1877#0" expanded="false" />
-            <element signature="e#1975#2285#0" expanded="false" />
-            <element signature="e#2395#2966#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -550,20 +537,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1656">
           <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
-          <folding>
-            <element signature="e#29#56#0" expanded="false" />
-            <element signature="e#58#102#0" expanded="false" />
-            <element signature="e#164#232#0" expanded="false" />
-            <element signature="e#234#367#0" expanded="false" />
-            <element signature="e#422#539#0" expanded="false" />
-            <element signature="e#594#726#0" expanded="false" />
-            <element signature="e#728#947#0" expanded="false" />
-            <element signature="e#949#1431#0" expanded="false" />
-            <element signature="e#1630#1702#0" expanded="false" />
-            <element signature="e#1750#1877#0" expanded="false" />
-            <element signature="e#1975#2285#0" expanded="false" />
-            <element signature="e#2395#2966#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -579,20 +553,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#29#56#0" expanded="false" />
-            <element signature="e#58#102#0" expanded="false" />
-            <element signature="e#164#232#0" expanded="false" />
-            <element signature="e#234#367#0" expanded="false" />
-            <element signature="e#422#539#0" expanded="false" />
-            <element signature="e#594#726#0" expanded="false" />
-            <element signature="e#728#947#0" expanded="false" />
-            <element signature="e#949#1431#0" expanded="false" />
-            <element signature="e#1630#1702#0" expanded="false" />
-            <element signature="e#1750#1877#0" expanded="false" />
-            <element signature="e#1975#2285#0" expanded="false" />
-            <element signature="e#2395#2966#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -608,20 +569,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
           <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding>
-            <element signature="e#29#56#0" expanded="false" />
-            <element signature="e#58#102#0" expanded="false" />
-            <element signature="e#164#232#0" expanded="false" />
-            <element signature="e#234#367#0" expanded="false" />
-            <element signature="e#422#539#0" expanded="false" />
-            <element signature="e#594#726#0" expanded="false" />
-            <element signature="e#728#947#0" expanded="false" />
-            <element signature="e#949#1431#0" expanded="false" />
-            <element signature="e#1630#1702#0" expanded="false" />
-            <element signature="e#1750#1877#0" expanded="false" />
-            <element signature="e#1975#2285#0" expanded="false" />
-            <element signature="e#2395#2966#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -642,22 +590,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/linear_regression/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7659575" vertical-offset="0" max-vertical-offset="940">
-          <caret line="79" column="39" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
-          <folding>
-            <element signature="e#29#56#0" expanded="false" />
-            <element signature="e#58#102#0" expanded="false" />
-            <element signature="e#164#232#0" expanded="false" />
-            <element signature="e#234#367#0" expanded="false" />
-            <element signature="e#422#539#0" expanded="false" />
-            <element signature="e#594#726#0" expanded="false" />
-            <element signature="e#728#947#0" expanded="false" />
-            <element signature="e#949#1431#0" expanded="false" />
-            <element signature="e#1630#1702#0" expanded="false" />
-            <element signature="e#1750#1877#0" expanded="false" />
-            <element signature="e#1975#2285#0" expanded="false" />
-            <element signature="e#2395#2966#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.15319149" vertical-offset="0" max-vertical-offset="1062">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
